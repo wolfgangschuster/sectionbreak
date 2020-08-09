@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?context-directive job ctxfile x-setups.ctx ?>
+
+<cd:interface xmlns:cd="http://www.pragma-ade.com/commands">
+
+    <cd:command name="definesectionbreak" level="style" category="structure" file="t-sectionbreak.mkvi">
+        <cd:arguments>
+            <cd:resolve name="keyword-name"/>
+            <cd:resolve name="keyword-name-optional"/>
+            <cd:assignments list="yes" optional="yes">
+                <cd:inherit name="setupsectionbreak"/>
+            </cd:assignments>
+        </cd:arguments>
+    </cd:command>
+
+    <cd:command name="setupsectionbreak" level="style" category="structure" file="t-sectionbreak.mkvi">
+        <cd:arguments>
+            <cd:resolve name="keyword-name-list-optional"/>
+            <cd:assignments list="yes">
+                <cd:parameter name="spacebefore">
+                    <cd:inherit name="blank"/>
+                </cd:parameter>
+                <cd:parameter name="spaceafter">
+                    <cd:inherit name="blank" default="nowhite"/>
+                </cd:parameter>
+                <cd:parameter name="spaceinbetween">
+                    <cd:inherit name="blank"/>
+                </cd:parameter>
+                <cd:parameter name="align">
+                    <cd:inherit name="setupalign" default="middle"/>
+                </cd:parameter>
+                <cd:parameter name="indentnext">
+                    <cd:resolve name="value-indentnext"/>
+                </cd:parameter>
+                <cd:parameter name="symbol">
+                    <cd:constant type="cd:name"/>
+                </cd:parameter>
+                <cd:parameter name="criterium">
+                    <cd:constant type="cd:dimension"/>
+                </cd:parameter>
+                <cd:parameter name="style">
+                    <cd:resolve name="value-style"/>
+                </cd:parameter>
+                <cd:parameter name="color">
+                    <cd:constant type="cd:color"/>
+                </cd:parameter>
+            </cd:assignments>
+        </cd:arguments>
+    </cd:command>
+
+    <cd:command name="sectionbreak" level="document" category="structure" file="t-sectionbreak.mkvi">
+        <cd:arguments>
+            <cd:resolve name="keyword-name-optional"/>
+            <cd:assignments list="yes" optional="yes">
+                <cd:inherit name="setupsectionbreak"/>
+            </cd:assignments>
+            <cd:content optional="yes"/>
+        </cd:arguments>
+    </cd:command>
+
+    <cd:command name="sectionbreak" generated="yes" variant="example" level="document" category="structure" file="t-sectionbreak.mkvi">
+        <cd:sequence>
+            <cd:instance value="sectionbreak"/>
+        </cd:sequence>
+        <cd:arguments>
+            <cd:assignments list="yes" optional="yes">
+                <cd:inherit name="setupsectionbreak"/>
+            </cd:assignments>
+            <cd:content optional="yes"/>
+        </cd:arguments>
+    </cd:command>
+
+    <cd:command name="sectionbreak" type="environment" level="document" category="structure" file="t-sectionbreak.mkvi">
+        <cd:arguments>
+            <cd:resolve name="keyword-name-optional"/>
+            <cd:assignments list="yes" optional="yes">
+                <cd:inherit name="setupsectionbreak"/>
+            </cd:assignments>
+        </cd:arguments>
+    </cd:command>
+
+    <cd:command name="sectionbreak" type="environment" generated="yes" variant="instance" level="document" category="structure" file="t-sectionbreak.mkvi">
+        <cd:sequence>
+            <cd:instance value="sectionbreak"/>
+        </cd:sequence>
+        <cd:arguments>
+            <cd:assignments list="yes" optional="yes">
+                <cd:inherit name="setupsectionbreak"/>
+            </cd:assignments>
+        </cd:arguments>
+    </cd:command>
+
+</cd:interface>

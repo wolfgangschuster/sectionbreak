@@ -1,0 +1,503 @@
+%D \module
+%D   [     file=t-sectionbreak,
+%D      version=2018.09.09,
+%D        title=\CONTEXT\ User Module,
+%D     subtitle=Section breaks,
+%D       author=Wolfgang Schuster,
+%D         date=\currentdate,
+%D    copyright=Wolfgang Schuster,
+%D      license=GNU General Public License]
+
+%C Copyright (C) 2010  Wolfgang Schuster
+%C
+%C This program is free software: you can redistribute it and/or modify
+%C it under the terms of the GNU General Public License as published by
+%C the Free Software Foundation, either version 3 of the License, or
+%C any later version.
+%C
+%C This program is distributed in the hope that it will be useful,
+%C but WITHOUT ANY WARRANTY; without even the implied warranty of
+%C MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%C GNU General Public License for more details.
+%C
+%C You should have received a copy of the GNU General Public License
+%C along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+%M \usemodule[sectionbreak]
+%M \usemodule[setups]
+%M \loadsetups[i-sectionbreak.xml]
+
+%D \subject{Examples}
+%D
+%D \macros
+%D   {sectionbreak}
+%D
+%D \subsubject{The \letterbackslash sectionbreak command}
+%D
+%D \starttyping
+%D Making oil requires a specific series of geological accidents ...
+%D \sectionbreak{$* * *$}
+%D Making oil requires a specific series of geological accidents ...
+%D \stoptyping
+%D
+%D results in
+%D
+%D \startexample
+%D \input montgomery
+%D \sectionbreak{$* * *$}
+%D \input montgomery
+%D \stopexample
+%D
+%D \extras
+%D   {spacebefore,spaceafter}
+%D
+%D \subsubject{The “spacebefore” and “spaceafter” keys}
+%D
+%D \starttyping
+%D \setupsectionbreak[spacebefore=line,spaceafter=line]
+%D
+%D The Earth, as a habitat for animal life, is in old age …
+%D \sectionbreak{$* * *$}
+%D The Earth, as a habitat for animal life, is in old age …
+%D \stoptyping
+%D
+%D results in
+%D
+%D \start
+%D
+%D \setupsectionbreak[spacebefore=line,spaceafter=line]
+%D
+%D \startexample
+%D \input ward
+%D \sectionbreak{$* * *$}
+%D \input ward
+%D \stopexample
+%D
+%D \stop
+%D
+%D \extras
+%D   {style}
+%D
+%D \subsubject{The “style” key}
+%D
+%D \starttyping
+%D \setupsectionbreak[style=bold]
+%D
+%D The warm water spills north and south through a series of ocean currents ...
+%D \sectionbreak{* * *}
+%D The warm water spills north and south through a series of ocean currents ...
+%D \stoptyping
+%D
+%D \start
+%D
+%D \setupsectionbreak[style=bold,spacebefore=medium]
+%D
+%D \input linden
+%D \sectionbreak{* * *}
+%D \input linden
+%D
+%D \stop
+%D
+%D \extras
+%D   {color}
+%D
+%D \subsubject{The “color” key}
+%D
+%D \starttyping
+%D \setupsectionbreak[color=red]
+%D
+%D Had our solar system included two suns, the problem would ...
+%D \sectionbreak{* * *}
+%D Had our solar system included two suns, the problem would ...
+%D \stoptyping
+%D
+%D \start
+%D
+%D \setupsectionbreak[color=red,spacebefore=medium]
+%D
+%D \input thuan
+%D \sectionbreak{* * *}
+%D \input thuan
+%D
+%D \stop
+%D
+%D \extras
+%D   {indentnext}
+%D
+%D \subsubject{The “indentnext” key}
+%D
+%D \starttyping
+%D The Earth, as a habitat for animal life, is in old age …
+%D \sectionbreak{$* * *$}
+%D The Earth, as a habitat for animal life, is in old age …
+%D \sectionbreak[indentnext=no]{$* * *$}
+%D The Earth, as a habitat for animal life, is in old age …
+%D \stoptyping
+%D
+%D \start
+%D
+%D \setupindenting[yes,medium]
+%D
+%D \input ward
+%D \sectionbreak{$* * *$}
+%D \input ward
+%D \sectionbreak[indentnext=no]{$* * *$}
+%D \input ward
+%D
+%D \stop
+%D
+%D \macros
+%D   {sectionbreak}
+%D
+%D \subsubject{The argumentless version of the \letterbackslash sectionbreak command}
+%D
+%D \starttyping
+%D Imagine trying to live in a world dominated by dihydrogen oxide ...
+%D \sectionbreak
+%D Imagine trying to live in a world dominated by dihydrogen oxide ...
+%D \stoptyping
+%D
+%D \input bryson
+%D \sectionbreak
+%D \input bryson
+%D
+%D \extras
+%D   {spaceinbetween}
+%D
+%D \subsubject{The “spaceinbetween” key}
+%D
+%D \starttyping
+%D \setupsectionbreak[spaceinbetween=3*line]
+%D
+%D If [in 2600] you stacked all the new books being published ...
+%D \sectionbreak
+%D If [in 2600] you stacked all the new books being published ...
+%D \stoptyping
+%D
+%D \start
+%D
+%D \setupsectionbreak[spaceinbetween=3*line]
+%D
+%D \input hawking
+%D \sectionbreak
+%D \input hawking
+%D
+%D \stop
+%D
+%D \extras
+%D   {symbol}
+%D
+%D \subsubject{The “symbol” key}
+%D
+%D \starttyping
+%D \setupsectionbreak[symbol=star]
+%D
+%D This nation, turning 100 years old, had no {\em Odyssey}, ...
+%D \sectionbreak
+%D This nation, turning 100 years old, had no {\em Odyssey}, ...
+%D \stoptyping
+%D
+%D \start
+%D
+%D \setupsectionbreak[symbol=star]
+%D
+%D \input davis
+%D \sectionbreak
+%D \input davis
+%D
+%D \stop
+%D
+%D \extras
+%D   {criterium}
+%D
+%D \subsubject{The “criterium” key}
+%D
+%D \starttyping
+%D \setupsectionbreak[spacebefore=line,spaceafter=line,criterium=.4\textwidth]
+%D
+%D The Earth, as a habitat for animal life, is in old age …
+%D \sectionbreak{$* * *$}
+%D This nation, turning 100 years old, had no {\em Odyssey}, ...
+%D \sectionbreak{$* * *$}
+%D Imagine trying to live in a world dominated by dihydrogen oxide ...
+%D \stoptyping
+%D
+%D results in
+%D
+%D \start
+%D
+%D \setupsectionbreak[spacebefore=line,spaceafter=line,criterium=.4\textwidth]
+%D
+%D \startexample
+%D \input ward
+%D \sectionbreak{$* * *$}
+%D \input davis
+%D \sectionbreak{$* * *$}
+%D \input bryson
+%D \stopexample
+%D
+%D \stop
+%D
+%D \macros
+%D   {startsectionbreak}
+%D
+%D \subsubject{The sectionbreak environment}
+%D
+%D \starttyping
+%D \useMPlibrary[txt]
+%D
+%D \setupMPvariables[EnglishRule][width=.6\hsize]
+%D
+%D \setupsectionbreak[spacebefore=line,spaceafter=line]
+%D
+%D The Earth, as a habitat for animal life, is in old age …
+%D
+%D \startsectionbreak
+%D \dontleavehmode\useMPgraphic{EnglishRule}
+%D \stopsectionbreak
+%D
+%D The Earth, as a habitat for animal life, is in old age …
+%D \stoptyping
+%D
+%D \start
+%D
+%D \setupsectionbreak[spacebefore=line,spaceafter=line]
+%D
+%D \useMPlibrary[txt]
+%D
+%D \setupMPvariables[EnglishRule][width=.6\hsize]
+%D
+%D \input ward
+%D
+%D \startsectionbreak
+%D \dontleavehmode\useMPgraphic{EnglishRule}
+%D \stopsectionbreak
+%D
+%D \input ward
+%D
+%D \stop
+%D
+%D \macros
+%D   {definesectionbreak}
+%D
+%D \subsubject{How to create new \letterbackslash sectionbreak commands}
+%D
+%D \starttyping
+%D \definesectionbreak[starbreak]  [symbol=star]
+%D \definesectionbreak[squarebreak][symbol=square]
+%D
+%D The Earth, as a habitat for animal life, is in old age …
+%D \starbreak
+%D The Earth, as a habitat for animal life, is in old age …
+%D \squarebreak
+%D The Earth, as a habitat for animal life, is in old age …
+%D \stoptyping
+%D
+%D \start
+%D
+%D \definesectionbreak[starbreak]  [symbol=star]
+%D \definesectionbreak[squarebreak][symbol=square]
+%D
+%D \input ward
+%D \starbreak
+%D \input bryson
+%D \squarebreak
+%D \input zapf
+%D
+%D \stop
+%D
+%D \subject{Implementation}
+
+\writestatus{loading}{ConTeXt User Module / Sectionbreak}
+
+\unprotect
+
+\installnamespace                        {sectionbreak}
+\installcommandhandler \????sectionbreak {sectionbreak} \????sectionbreak
+
+%D \macros
+%D   {setupsectionbreak}
+%D
+%D \subsubject{\letterbackslash setupsectionbreak}
+%D
+%D With the command \type{\setupsectionbreak} one can change the settings of
+%D a previous created command, the two argument version change only the values
+%D of a certain command while the one argument version change the values of
+%D all commands.
+%D
+%D \showsetup{setupsectionbreak}
+%D
+%D \macros
+%D   {definesectionbreak}
+%D
+%D \subsubject{\letterbackslash definesectionbreak}
+%D
+%D The command \type{\sectionbreak} is not hardcoded in the module but created with
+%D \type{\definesectionbreak}. The command takes two arguments, the first is the name
+%D of the new command and the second parameter to change the style of the commands
+%D content and distances to the surrounding text.
+%D
+%D In \MKII\ users can only change the spacing before and after the content and
+%D the alignment of it while \MKIV\ user can also change the style and color of it.
+%D
+%D \showsetup{definesectionbreak}
+
+\appendtoks
+  \setuevalue        {\currentsectionbreak}{\sectionbreak     [\currentsectionbreak]}%
+  \setuevalue{\e!start\currentsectionbreak}{\startsectionbreak[\currentsectionbreak]}%
+  \setuevalue{\e!stop \currentsectionbreak}{\stopsectionbreak                       }%
+\to \everydefinesectionbreak
+
+%D \macros
+%D   {sectionbreak}
+%D
+%D \subsubject{\letterbackslash sectionbreak}
+%D
+%D The main macro of the module is the \type{\sectionbreak} command (or a user defined
+%D variant of it), it takes one argument which can be optional.
+%D
+%D \showsetup{sectionbreak}
+%D \showsetup{startsectionbreak}
+
+\unexpanded\def\sectionbreak
+  {\par
+   \begingroup
+   \dodoubleempty\sectionbreak_direct}
+
+\def\sectionbreak_direct
+  {\ifsecondargument
+     \singleexpandafter\sectionbreak_direct_double
+   \else\iffirstargument
+     \doubleexpandafter\sectionbreak_direct_single
+   \else
+     \doubleexpandafter\sectionbreak_direct_zero
+   \fi\fi}
+
+\def\sectionbreak_direct_double[#environment][#parameters]%
+  {\edef\currentsectionbreak{#environment}%
+   \checksectionbreakparent
+   \setupcurrentsectionbreak[#parameters]%
+   \doifnextbgroupelse\sectionbreak_direct_yes\sectionbreak_direct_nop}
+
+\def\sectionbreak_direct_single[#environment][#parameters]%
+  {\doifelseassignment{#environment}
+     {\let\currentsectionbreak\empty
+      \setupcurrentsectionbreak[#environment]}
+     {\edef\currentsectionbreak{#environment}%
+      \checksectionbreakparent}%
+   \doifnextbgroupelse\sectionbreak_direct_yes\sectionbreak_direct_nop}
+
+\def\sectionbreak_direct_zero[#environment][#parameters]%
+  {\let\currentsectionbreak\empty
+   \doifnextbgroupelse\sectionbreak_direct_yes\sectionbreak_direct_nop}
+
+% \def\sectionbreak_direct_yes
+%   {\forgetparindent
+%    \useindentnextparameter\sectionbreakparameter
+%    \blank[\sectionbreakparameter\c!spacebefore]%
+%    \dostarttagged\t!division\currentsectionbreak
+%    \dowithnextboxcontent
+%      {\usealignparameter\sectionbreakparameter
+%       \usesectionbreakstyleandcolor\c!style\c!color}
+%      {\flushnextbox
+%       \dostoptagged
+%       \blank[\sectionbreakparameter\c!spaceafter]%
+%       \endgroup
+%       \dorechecknextindentation}
+%      \vbox}
+
+\def\sectionbreak_direct_yes
+  {\forgetparindent
+   \useindentnextparameter\sectionbreakparameter
+   \dowithnextboxcontent
+     {\usealignparameter\sectionbreakparameter
+      \usesectionbreakstyleandcolor\c!style\c!color}
+     {\edef\p_criterium{\sectionbreakparameter\c!criterium}
+      \ifx\p_criterium\empty
+        \blank[\sectionbreakparameter\c!spacebefore]%
+      \else\ifdim\lastlinewidth>\p_criterium
+        \blank[\sectionbreakparameter\c!spacebefore]%
+      \else % when the last text line is shorter than criterium no skip as added before the section break
+        \blank[\v!nowhite]%
+      \fi\fi
+      \dostarttagged\t!division\currentsectionbreak
+      \flushnextbox
+      \dostoptagged
+      \blank[\sectionbreakparameter\c!spaceafter]%
+      \endgroup
+      \dorechecknextindentation}
+     \vbox}
+
+\def\sectionbreak_direct_yes
+  {\forgetparindent
+   \useindentnextparameter\sectionbreakparameter
+   \usesectionbreakstyleandcolor\c!style\c!color
+   \dowithnextbox
+     {\edef\p_criterium{\sectionbreakparameter\c!criterium}
+      \ifx\p_criterium\empty
+        \blank[\sectionbreakparameter\c!spacebefore]%
+      \else\ifdim\dimexpr\lastlinewidth+\p_criterium\relax>\dimexpr(\hsize-\nextboxwd)/2\relax
+        \blank[\sectionbreakparameter\c!spacebefore]%
+      \else % the horizontal space between the last text line and the symbol is smaller than criterium
+        \blank[\v!nowhite]%
+      \fi\fi
+      \dostarttagged\t!division\currentsectionbreak
+      \vbox{\usealignparameter\sectionbreakparameter\strut\unhbox\nextbox}%
+      \dostoptagged
+      \blank[\sectionbreakparameter\c!spaceafter]%
+      \endgroup
+      \dorechecknextindentation}
+     \hbox}
+
+\def\sectionbreak_direct_nop
+  {\doifsymboldefinedelse{\sectionbreakparameter\c!symbol}
+     {\sectionbreak_direct_yes{\symbol[\sectionbreakparameter\c!symbol]}}
+     {\blank[\sectionbreakparameter\c!spaceinbetween]%
+      \useindentnextparameter\sectionbreakparameter
+      \endgroup
+      \dorechecknextindentation}}
+
+\unexpanded\def\startsectionbreak
+  {\par
+   \begingroup
+   \dodoubleempty\sectionbreak_start}
+
+\def\sectionbreak_start
+  {\ifsecondargument
+     \singleexpandafter\sectionbreak_start_double
+   \else\iffirstargument
+     \doubleexpandafter\sectionbreak_start_single
+   \else
+     \doubleexpandafter\sectionbreak_start_zero
+   \fi\fi}
+
+\def\sectionbreak_start_double[#environment][#parameters]%
+  {\edef\currentsectionbreak{#environment}%
+   \checksectionbreakparent
+   \setupcurrentsectionbreak[#parameters]%
+   \sectionbreak_direct_yes\bgroup}
+
+\def\sectionbreak_start_single[#environment][#parameters]%
+  {\doifelseassignment{#environment}
+     {\let\currentsectionbreak\empty
+      \setupcurrentsectionbreak[#parameters]}
+     {\edef\currentsectionbreak{#environment}%
+      \checksectionbreakparent}%
+   \sectionbreak_direct_yes\bgroup}
+
+\def\sectionbreak_start_zero[#environment][#parameters]%
+  {\let\currentsectionbreak\empty
+   \sectionbreak_direct_yes\bgroup}
+
+\unexpanded\def\stopsectionbreak
+  {\egroup}
+
+\setupsectionbreak
+  [   \c!spacebefore=,
+       \c!spaceafter=\v!nowhite,
+   \c!spaceinbetween=\v!line,
+            \c!align=\v!middle,
+       \c!indentnext=\v!yes,
+           \c!symbol=]
+
+\protect \endinput
